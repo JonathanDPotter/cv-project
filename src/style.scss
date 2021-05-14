@@ -1,10 +1,56 @@
+$background: rgba(159, 170, 223, 0.5);
+$yellow: rgba(241, 215, 98, 0.7);
+$red: rgba(247, 11, 11, 0.7);
+$white: rgb(233, 231, 231);
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 #root {
   height: 100vh;
   width: 100vw;
-  background-color: rgb(141, 190, 141);
+  background-color: $background;
+  display: flex;
+}
+
+header {
+  height: 10vh;
+  width: 100vw;
+  background-color: $yellow;
+  line-height: 10vh;
+}
+
+form {
+  width: 50vw;
+  max-width: 400px;
+  overflow: hidden;
+  text-align: center;
+
+  div {
+    width: 100%;
+    display: flex;
+  }
+
+  input,
+  select, 
+  button {
+    height: 1.5rem;
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 5px;
+    background-color: $white;
+    margin: .5rem;
+  }
+  
+  label {
+    margin: .5rem;
+    margin-right: 1rem;
+    width: 10rem;
+  }
+  button {
+    width: 10vw;
+  }
 }
