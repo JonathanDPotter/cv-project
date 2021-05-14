@@ -7,6 +7,7 @@ $white: rgb(233, 231, 231);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #root {
@@ -14,6 +15,9 @@ $white: rgb(233, 231, 231);
   width: 100vw;
   background-color: $background;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 header {
@@ -21,13 +25,17 @@ header {
   width: 100vw;
   background-color: $yellow;
   line-height: 10vh;
+  border-radius: 5px;
+  padding-left: 1rem;
 }
 
 form {
   width: 50vw;
   max-width: 400px;
   overflow: hidden;
-  text-align: center;
+  height: fit-content;
+  line-height: 1.5rem;
+  margin: 0 auto;
 
   div {
     width: 100%;
@@ -47,10 +55,12 @@ form {
   
   label {
     margin: .5rem;
-    margin-right: 1rem;
     width: 10rem;
   }
   button {
-    width: 10vw;
+    width: 10rem;
+    font-size: 1rem;
+    background-color: $yellow;
+    float: right;
   }
 }

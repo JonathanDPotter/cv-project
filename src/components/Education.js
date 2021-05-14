@@ -1,17 +1,21 @@
 function Education() {
   return (
-    <form id="educationi-form" class="form">
+    <form id="education-form" class="form">
       <div>
-        <label htmlFor="undergraduate">Undergraduate: </label>
-        <input type="text" name="undergraduate" id="undergraduate-input" />
+        <label htmlFor="school">School: </label>
+        <input type="text" name="school" id="school-input" />
       </div>
       <div>
-        <label htmlFor="post-graduate">Post-Graduate: </label>
-        <input type="text" name="post-graduate" id="post-graduate-input" />
+        <label htmlFor="from">From: </label>
+        <input type="text" name="from" id="from-input" />
       </div>
       <div>
-        <label htmlFor="other">Other: </label>
-        <input type="text" name="other" id="other-input" />
+        <label htmlFor="to">To: </label>
+        <input type="text" name="to" id="to-input" />
+      </div>
+      <div>
+        <label htmlFor="degree">Degree: </label>
+        <input type="text" name="degree" id="degree-input" />
       </div>
       <button type="submit">save</button>
     </form>
