@@ -1,6 +1,6 @@
 function Experience() {
   return (
-    <form id="experience-form" class="form">
+    <form id="experience-form" className="hidden form">
       <div>
         <label htmlFor="company">Company: </label>
         <input type="text" name="company" id="company-input" />

@@ -1,25 +1,45 @@
-function Education() {
+function Education(props) {
   return (
-    <form id="education-form" class="form">
+    <form id="education-form" className="form" onSubmit={props.handleSubmit}>
       <div>
-        <label htmlFor="school">School: </label>
-        <input type="text" name="school" id="school-input" />
+        <label htmlFor="edSchool">School: </label>
+        <input
+          type="text"
+          name="edSchool"
+          id="school-input"
+          onChange={props.handleChange}
+        />
       </div>
       <div>
-        <label htmlFor="from">From: </label>
-        <input type="text" name="from" id="from-input" />
+        <label htmlFor="edFrom">From: </label>
+        <input
+          type="text"
+          name="edFrom"
+          id="from-input"
+          onChange={props.handleChange}
+        />
       </div>
       <div>
         <label htmlFor="to">To: </label>
-        <input type="text" name="to" id="to-input" />
+        <input
+          type="text"
+          name="edTo"
+          id="to-input"
+          onChange={props.handleChange}
+        />
       </div>
       <div>
         <label htmlFor="degree">Degree: </label>
-        <input type="text" name="degree" id="degree-input" />
+        <input
+          type="text"
+          name="edDegree"
+          id="degree-input"
+          onChange={props.handleChange}
+        />
       </div>
       <button type="submit">save</button>
     </form>
   );
 }
 
-export default Education
+export default Education;

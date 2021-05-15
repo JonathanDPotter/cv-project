@@ -1,6 +1,6 @@
 function General(props) {
   return (
-    <form id="general-form" class="form">
+    <form id="general-form" className="hidden form">
       <div>
         <label htmlFor="first-name">First Name: </label>
       <input type="text" name="first-name" id="first-name-input" />
