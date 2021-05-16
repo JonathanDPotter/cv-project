@@ -10,13 +10,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      general: [],
-      edList: [],
-      edSchool: "",
-      edFrom: "",
-      edTo: "",
-      edDegree: "",
-      experience: [],
+      general: {
+        list: [],
+      },
+      education: {
+        list: [1],
+        school: "",
+        to: "",
+        from: "",
+        degree: "",
+      },
+      experience: {
+        list: [],
+      },
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -24,30 +30,37 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.edSchool);
+    const { name } = event.target;
+    const currState = this.state[name];
+    let newListItem = {};
+    let newList = currState.list.map((a) => a);
+    [...event.target.elements].forEach((a) => (newListItem[a.name] = a.value));
+    newList.push(newListItem);
+    currState.list = newList;
+    this.setState({ [name]: currState });
+    console.log(this.state);
   }
 
   handleChange(event) {
-    const currState = this.state;
-    const name = event.target.name;
-    const value = event.target.value;
-    currState[name] = value;
-    this.setState({ [name]: currState[name] });
-    console.table(this.state);
+    const { name, value } = event.target;
+    const [name1, name2] = name.split(" ");
+    const currState = this.state[name1];
+    currState[name2] = value;
+    this.setState({ [name1]: currState });
   }
 
   render() {
-    const education = ["love", "my", "curves", 4];
+    const { general, education, experience } = this.state;
     return (
       <div id="return">
         <Header />
-        <General />
+        <General general={general} />
         <Education
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-        <Experience />
-        <CeeVee education={education} />
+        <Experience experiene={experience} />
+        <CeeVee education={education.list} />
       </div>
     );
   }

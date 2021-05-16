@@ -1,38 +1,44 @@
 function Education(props) {
   return (
-    <form id="education-form" className="form" onSubmit={props.handleSubmit}>
+    <form
+      id="education-form"
+      action=""
+      className="form"
+      onSubmit={props.handleSubmit}
+      name="education"
+    >
       <div>
-        <label htmlFor="edSchool">School: </label>
+        <label htmlFor="education school">School: </label>
         <input
           type="text"
-          name="edSchool"
+          name="education school"
           id="school-input"
           onChange={props.handleChange}
         />
       </div>
       <div>
-        <label htmlFor="edFrom">From: </label>
+        <label htmlFor="education from">From: </label>
         <input
           type="text"
-          name="edFrom"
+          name="education from"
           id="from-input"
           onChange={props.handleChange}
         />
       </div>
       <div>
-        <label htmlFor="to">To: </label>
+        <label htmlFor="education to">To: </label>
         <input
           type="text"
-          name="edTo"
+          name="education to"
           id="to-input"
           onChange={props.handleChange}
         />
       </div>
       <div>
-        <label htmlFor="degree">Degree: </label>
+        <label htmlFor="education degree">Degree: </label>
         <input
           type="text"
-          name="edDegree"
+          name="education degree"
           id="degree-input"
           onChange={props.handleChange}
         />

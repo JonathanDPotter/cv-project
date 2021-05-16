@@ -1,5 +1,6 @@
 function CeeVee(props) {
-  const education = function (a, i) {
+  const { name, description, education} = props;
+  const display = function (a, i) {
     return (
       <div className="education" key={i}>
         <h3 className="school">{a}1</h3>
@@ -12,13 +13,13 @@ function CeeVee(props) {
   return (
     <div id="cee-vee">
       <div id="name">
-        <h1>{props.name}</h1>
-        <p>{props.description}</p>
+        <h1>{name}</h1>
+        <p>{description}</p>
       </div>
       <div id="education">
         <h2>Educatation</h2>
         <div className="list-item">
-          {props.education.map((a, i) => education(a, i))}
+          {education.map((a, i) => display(a, i))}
         </div>
       </div>
     </div>
