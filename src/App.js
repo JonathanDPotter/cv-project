@@ -12,6 +12,9 @@ class App extends Component {
     this.state = {
       general: {
         list: [],
+        firstName: "",
+        lastName: "",
+        age: "",
       },
       education: {
         list: [],
@@ -36,7 +39,7 @@ class App extends Component {
     let newList = currState.list.map((a) => a);
     [...event.target.elements].forEach((a) => {
       let itemName = a.name.split(" ")[1];
-      (newListItem[itemName] = a.value)
+      newListItem[itemName] = a.value;
     });
     newList.push(newListItem);
     currState.list = newList;
@@ -56,13 +59,23 @@ class App extends Component {
     return (
       <div id="return">
         <Header />
-        <General general={general} />
+        <General
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
         <Education
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-        <Experience experiene={experience} />
-        <CeeVee education={education.list} />
+        <Experience
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
+        <CeeVee
+          education={education.list}
+          general={general.list}
+          experience={experience.list}
+        />
       </div>
     );
   }

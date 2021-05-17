@@ -1,6 +1,7 @@
 function CeeVee(props) {
-  const { name, description, education} = props;
-  const display = function (obj, i) {
+  const { name, description, education, general, experience } = props;
+  
+  const displayEd = function (obj, i) {
 
     return (
       <div className="education" key={i}>
@@ -11,6 +12,16 @@ function CeeVee(props) {
     )
   };
 
+   const displayGen = function (obj, i) {
+     return (
+       <div className="general" key={i}>
+         <h3 className="firstName">{obj.firstName}</h3>
+         <h4 className="lastName">{obj.lastName}</h4>
+         <h4 className="age">{obj.age}</h4>
+       </div>
+     );
+   };
+
   return (
     <div id="cee-vee">
       <div id="name">
@@ -20,7 +31,13 @@ function CeeVee(props) {
       <div id="education">
         <h2>Educatation</h2>
         <div className="list-item">
-          {education.map((a, i) => display(a, i))}
+          {education.map((a, i) => displayEd(a, i))}
+        </div>
+      </div>
+      <div id="general">
+        <h2>General</h2>
+        <div className="list-item">
+          {general.map((a, i) => displayGen(a, i))}
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ function Education(props) {
   return (
     <form
       id="education-form"
-      action=""
       className="form"
       onSubmit={props.handleSubmit}
       name="education"
