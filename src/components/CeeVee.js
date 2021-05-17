@@ -1,11 +1,12 @@
 function CeeVee(props) {
   const { name, description, education} = props;
-  const display = function (a, i) {
+  const display = function (obj, i) {
+
     return (
       <div className="education" key={i}>
-        <h3 className="school">{a}1</h3>
-        <h4 className="fromTo">2</h4>
-        <h4 className="degree">3</h4>
+        <h3 className="school">{obj.school}</h3>
+        <h4 className="fromTo">From: {obj.from} To: {obj.to}</h4>
+        <h4 className="degree">{obj.degree}</h4>
       </div>
     )
   };

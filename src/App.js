@@ -14,7 +14,7 @@ class App extends Component {
         list: [],
       },
       education: {
-        list: [1],
+        list: [],
         school: "",
         to: "",
         from: "",
@@ -34,11 +34,13 @@ class App extends Component {
     const currState = this.state[name];
     let newListItem = {};
     let newList = currState.list.map((a) => a);
-    [...event.target.elements].forEach((a) => (newListItem[a.name] = a.value));
+    [...event.target.elements].forEach((a) => {
+      let itemName = a.name.split(" ")[1];
+      (newListItem[itemName] = a.value)
+    });
     newList.push(newListItem);
     currState.list = newList;
     this.setState({ [name]: currState });
-    console.log(this.state);
   }
 
   handleChange(event) {
