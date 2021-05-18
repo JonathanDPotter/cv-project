@@ -12,8 +12,8 @@ class App extends Component {
     this.state = {
       general: {
         list: [],
-        firstName: "",
-        lastName: "",
+        first: "",
+        last: "",
         age: "",
       },
       education: {
@@ -43,6 +43,7 @@ class App extends Component {
     });
     newList.push(newListItem);
     currState.list = newList;
+    console.log(currState);
     this.setState({ [name]: currState });
   }
 
@@ -52,6 +53,7 @@ class App extends Component {
     const currState = this.state[name1];
     currState[name2] = value;
     this.setState({ [name1]: currState });
+    console.log(currState)
   }
 
   render() {

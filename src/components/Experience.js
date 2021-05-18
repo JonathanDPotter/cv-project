@@ -1,21 +1,27 @@
-function Experience() {
+function Experience(props) {
   return (
-    <form id="experience-form" className="hidden form">
+    <form
+      id="experience-form"
+      className="form"
+      name="experience"
+      onChange={props.handleChange}
+      onSubmit={props.handleSubmit}
+    >
       <div>
-        <label htmlFor="company">Company: </label>
-        <input type="text" name="company" id="company-input" />
-      </div>
-      <div>
-        <label htmlFor="postition">Postition: </label>
-        <input type="text" name="postition" id="postition-input" />
+        <label htmlFor="experience company">Company: </label>
+        <input type="text" name="experience company" id="company-input" />
       </div>
       <div>
         <label htmlFor="from">From: </label>
-        <input type="text" name="from" id="from-input" />
+        <input type="text" name="experience from" id="from-input" />
       </div>
       <div>
         <label htmlFor="to">To: </label>
-        <input type="text" name="to" id="to-input" />
+        <input type="text" name="experience to" id="to-input" />
+      </div>
+      <div>
+        <label htmlFor="experience postition">Postition: </label>
+        <input type="text" name="experience postition" id="postition-input" />
       </div>
       <button type="submit">save</button>
     </form>

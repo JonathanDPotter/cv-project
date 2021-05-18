@@ -5,18 +5,19 @@ function General(props) {
       className="form"
       name="general"
       onSubmit={props.handleSubmit}
+      onChange={props.handleChange}
     >
       <div>
-        <label htmlFor="first-name">First Name: </label>
-        <input type="text" name="first-name" id="first-name-input" />
+        <label htmlFor="general first">First Name: </label>
+        <input type="text" name="general first" id="first-name-input" />
       </div>
       <div>
-        <label htmlFor="last-name">Last Name: </label>
-        <input type="text" name="last-name" id="last-name-input" />
+        <label htmlFor="general last">Last Name: </label>
+        <input type="text" name="general last" id="last-name-input" />
       </div>
       <div>
         <label htmlFor="age">Age: </label>
-        <input type="text" name="age" id="age-input" />
+        <input type="text" name="general age" id="age-input" />
       </div>
       <button type="submit">save</button>
     </form>
