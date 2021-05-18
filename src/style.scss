@@ -7,7 +7,7 @@ $white: rgb(233, 231, 231);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 #root {
@@ -17,7 +17,6 @@ $white: rgb(233, 231, 231);
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 header {
@@ -26,7 +25,12 @@ header {
   background-color: $yellow;
   line-height: 10vh;
   border-radius: 5px;
-  padding-left: 1rem;
+  display: flex;
+  #content-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 form {
@@ -43,18 +47,18 @@ form {
   }
 
   input,
-  select, 
+  select,
   button {
     height: 1.5rem;
     width: 100%;
     flex-grow: 1;
     border-radius: 5px;
     background-color: $white;
-    margin: .5rem;
+    margin: 0.5rem;
   }
-  
+
   label {
-    margin: .5rem;
+    margin: 0.5rem;
     width: 10rem;
   }
   button {
