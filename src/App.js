@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       general: {
-        list: [],
+        list: {},
         first: "",
         last: "",
         age: "",
@@ -19,12 +19,16 @@ class App extends Component {
       education: {
         list: [],
         school: "",
-        to: "",
         from: "",
+        to: "",
         degree: "",
       },
       experience: {
         list: [],
+        company: "",
+        from: "",
+        to: "",
+        position: "",
       },
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,14 +40,18 @@ class App extends Component {
     const { name } = event.target;
     const currState = this.state[name];
     let newListItem = {};
-    let newList = currState.list.map((a) => a);
+    let newList = [];
     [...event.target.elements].forEach((a) => {
       let itemName = a.name.split(" ")[1];
       newListItem[itemName] = a.value;
     });
-    newList.push(newListItem);
+    if (name === "general") {
+      newList = newListItem;
+    } else {
+      newList = currState.list.map((a) => a);
+      newList.push(newListItem);
+    }
     currState.list = newList;
-    console.log(currState);
     this.setState({ [name]: currState });
   }
 
@@ -53,7 +61,6 @@ class App extends Component {
     const currState = this.state[name1];
     currState[name2] = value;
     this.setState({ [name1]: currState });
-    console.log(currState)
   }
 
   render() {

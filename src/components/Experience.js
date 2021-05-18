@@ -20,8 +20,8 @@ function Experience(props) {
         <input type="text" name="experience to" id="to-input" />
       </div>
       <div>
-        <label htmlFor="experience postition">Postition: </label>
-        <input type="text" name="experience postition" id="postition-input" />
+        <label htmlFor="experience position">Postition: </label>
+        <input type="text" name="experience position" id="postition-input" />
       </div>
       <button type="submit">save</button>
     </form>
