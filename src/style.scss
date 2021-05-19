@@ -1,4 +1,5 @@
 $background: rgba(159, 170, 223, 0.5);
+$darkblue: rgb(66, 66, 119);
 $yellow: rgba(241, 215, 98, 0.7);
 $red: rgba(247, 11, 11, 0.7);
 $white: rgb(233, 231, 231);
@@ -27,9 +28,16 @@ header {
   border-radius: 5px;
   display: flex;
   #content-box {
-    width: 100%;
+    width: 100%; 
     display: flex;
     justify-content: space-around;
+    button {
+      background-color: $darkblue;
+      color: $white;
+      border-radius: 5px;
+      height: 3rem;
+      margin: auto;
+    }
   }
 }
 

@@ -2,7 +2,7 @@ function Experience(props) {
   return (
     <form
       id="experience-form"
-      className="form"
+      className={props.hidden ? "hidden" : "form"}
       name="experience"
       onChange={props.handleChange}
       onSubmit={props.handleSubmit}

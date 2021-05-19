@@ -2,7 +2,7 @@ function Education(props) {
   return (
     <form
       id="education-form"
-      className="form"
+      className={props.hidden === true ? "hidden" : "form"}
       onSubmit={props.handleSubmit}
       onChange={props.handleChange}
       name="education"

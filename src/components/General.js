@@ -2,7 +2,7 @@ function General(props) {
   return (
     <form
       id="general-form"
-      className="form"
+      className={props.hidden ? "hidden" : "form"}
       name="general"
       onSubmit={props.handleSubmit}
       onChange={props.handleChange}
