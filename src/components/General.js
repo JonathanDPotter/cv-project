@@ -1,8 +1,8 @@
-function General(props) {
+const General = function (props) {
   return (
     <form
       id="general-form"
-      className={props.hidden ? "hidden" : "form"}
+      className={props.hidden === true ? "hidden" : "form"}
       name="general"
       onSubmit={props.handleSubmit}
       onChange={props.handleChange}

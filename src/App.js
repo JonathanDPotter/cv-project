@@ -45,7 +45,8 @@ class App extends Component {
     if (currState.hidden === true) {
       currState.hidden = false;
     }
-    console.log(currState);
+    this.setState({[name]: currState})
+    console.log(this.state[name]);
   }
 
   handleSubmit(event) {
@@ -63,8 +64,8 @@ class App extends Component {
     } else {
       newList = currState.list.map((a) => a);
       newList.push(newListItem);
-      newList.hidden = true;
     }
+    currState.hidden = true;
     currState.list = newList;
     this.setState({ [name]: currState });
   }
@@ -82,11 +83,12 @@ class App extends Component {
     return (
       <div id="return">
         <Header hideUnhide={this.hideUnhide} />
-        <General
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          hidden={this.state.general.hidden}
-        />
+        {this.state.general.hidden === false &&
+          <General
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />
+        }
         <Education
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}

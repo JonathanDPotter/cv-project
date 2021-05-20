@@ -42,6 +42,7 @@ header {
 }
 
 form {
+  display: block;
   width: 50vw;
   max-width: 400px;
   overflow: hidden;
@@ -79,4 +80,8 @@ form {
 
 .hidden {
   display: none;
+}
+
+.show {
+  display: block;
 }
