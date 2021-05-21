@@ -42,7 +42,7 @@ class App extends Component {
 
   hideUnhide(event) {
     const { name } = event.target;
-    const currState = {...this.state[name]};
+    const currState = { ...this.state[name] };
     if (currState.hidden === true) {
       currState.hidden = false;
     }
@@ -67,10 +67,10 @@ class App extends Component {
     }
     currState.hidden = true;
     currState.list = newList;
-    currState = this.clearNamedState(currState);
-    event.target.reset();
+    if (name !== "general") {
+      currState = this.clearNamedState(currState);
+    }
     this.setState({ [name]: currState });
-
   }
 
   handleChange(event) {
@@ -84,11 +84,13 @@ class App extends Component {
   handleCancel(event) {
     const { name } = event.target;
     let currState = { ...this.state[name] };
-    currState = this.clearNamedState(currState);
+    if (name !== "general") {
+      currState = this.clearNamedState(currState);
+    }
     currState.hidden = true;
     this.setState({ [name]: currState });
   }
-  
+
   clearNamedState(namedState) {
     for (const key in namedState) {
       if (key !== "list" && key !== "hidden") {

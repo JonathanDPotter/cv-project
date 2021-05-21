@@ -9,7 +9,7 @@ function Header(props) {
           className="head-btn"
           onClick={props.hideUnhide}
         >
-          Update General Information
+         General
         </button>
         <button
           id="add-education"
@@ -17,7 +17,7 @@ function Header(props) {
           className="head-btn"
           onClick={props.hideUnhide}
         >
-          Add Education
+          Education
         </button>
         <button
           id="add-experience"
@@ -25,7 +25,7 @@ function Header(props) {
           className="head-btn"
           onClick={props.hideUnhide}
         >
-          Add Experience
+          Experience
         </button>
       </div>
     </header>
