@@ -2,26 +2,46 @@ const General = function (props) {
   return (
     <form
       id="general-form"
-      className={props.hidden === true ? "hidden" : "form"}
+      className={props.genState.hidden === true ? "hidden" : "form"}
       name="general"
       onSubmit={props.handleSubmit}
-      onChange={props.handleChange}
     >
       <div>
         <label htmlFor="general first">First Name: </label>
-        <input type="text" name="general first" id="first-name-input" />
+        <input
+          type="text"
+          name="general first"
+          id="first-name-input"
+          onChange={props.handleChange}
+          value={props.genState.first}
+        />
       </div>
       <div>
         <label htmlFor="general last">Last Name: </label>
-        <input type="text" name="general last" id="last-name-input" />
+        <input
+          type="text"
+          name="general last"
+          id="last-name-input"
+          onChange={props.handleChange}
+          value={props.genState.last}
+        />
       </div>
       <div>
         <label htmlFor="age">Age: </label>
-        <input type="text" name="general age" id="age-input" />
+        <input
+          type="text"
+          name="general age"
+          id="age-input"
+          onChange={props.handleChange}
+          value={props.genState.age}
+        />
       </div>
+      <button type="reset" onClick={props.handleCancel} name="general">
+        cancel
+      </button>
       <button type="submit">save</button>
     </form>
   );
-}
+};
 
 export default General;

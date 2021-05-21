@@ -42,17 +42,17 @@ class App extends Component {
 
   hideUnhide(event) {
     const { name } = event.target;
-    const currState = this.state[name];
+    const currState = {...this.state[name]};
     if (currState.hidden === true) {
       currState.hidden = false;
     }
-    this.setState({[name]: currState})
+    this.setState({ [name]: currState });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const { name } = event.target;
-    const currState = this.state[name];
+    let currState = { ...this.state[name] };
     let newListItem = {};
     let newList = [];
     for (const [key, value] of Object.entries(currState)) {
@@ -67,25 +67,35 @@ class App extends Component {
     }
     currState.hidden = true;
     currState.list = newList;
-    this.setState({ [name]: currState });
+    currState = this.clearNamedState(currState);
     event.target.reset();
+    this.setState({ [name]: currState });
+
   }
 
   handleChange(event) {
     const { name, value } = event.target;
     const [name1, name2] = name.split(" ");
-    const currState = this.state[name1];
+    const currState = { ...this.state[name1] };
     currState[name2] = value;
     this.setState({ [name1]: currState });
   }
 
   handleCancel(event) {
     const { name } = event.target;
-    const currState = this.state[name];
+    let currState = { ...this.state[name] };
+    currState = this.clearNamedState(currState);
     currState.hidden = true;
-    this.setState({name: currState});
-    event.target.parentElement.reset();
-
+    this.setState({ [name]: currState });
+  }
+  
+  clearNamedState(namedState) {
+    for (const key in namedState) {
+      if (key !== "list" && key !== "hidden") {
+        namedState[key] = "";
+      }
+    }
+    return namedState;
   }
 
   render() {
@@ -93,22 +103,23 @@ class App extends Component {
     return (
       <div id="return">
         <Header hideUnhide={this.hideUnhide} />
-        {this.state.general.hidden === false &&
-          <General
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-          />
-        }
+        <General
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          handleCancel={this.handleCancel}
+          genState={this.state.general}
+        />
         <Education
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
-          hidden={this.state.education.hidden}
+          handleCancel={this.handleCancel}
+          edState={this.state.education}
         />
         <Experience
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           handleCancel={this.handleCancel}
-          hidden={this.state.experience.hidden}
+          expState={this.state.experience}
         />
         <CeeVee
           education={education.list}

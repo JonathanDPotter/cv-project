@@ -2,26 +2,49 @@ function Experience(props) {
   return (
     <form
       id="experience-form"
-      className={props.hidden ? "hidden" : "form"}
+      className={props.expState.hidden ? "hidden" : "form"}
       name="experience"
-      onChange={props.handleChange}
       onSubmit={props.handleSubmit}
     >
       <div>
         <label htmlFor="experience company">Company: </label>
-        <input type="text" name="experience company" id="company-input" />
+        <input
+          type="text"
+          name="experience company"
+          id="company-input"
+          onChange={props.handleChange}
+          value={props.expState.company}
+        />
       </div>
       <div>
         <label htmlFor="from">From: </label>
-        <input type="text" name="experience from" id="from-input" />
+        <input
+          type="text"
+          name="experience from"
+          id="from-input"
+          onChange={props.handleChange}
+          value={props.expState.from}
+        />
       </div>
       <div>
         <label htmlFor="to">To: </label>
-        <input type="text" name="experience to" id="to-input" />
+        <input
+          type="text"
+          name="experience to"
+          id="to-input"
+          onChange={props.handleChange}
+          value={props.expState.to}
+        />
       </div>
       <div>
         <label htmlFor="experience position">Postition: </label>
-        <input type="text" name="experience position" id="postition-input" />
+        <input
+          type="text"
+          name="experience position"
+          id="postition-input"
+          onChange={props.handleChange}
+          value={props.expState.position}
+        />
       </div>
       <button type="reset" onClick={props.handleCancel} name="experience">
         cancel
