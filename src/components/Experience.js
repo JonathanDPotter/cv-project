@@ -23,6 +23,9 @@ function Experience(props) {
         <label htmlFor="experience position">Postition: </label>
         <input type="text" name="experience position" id="postition-input" />
       </div>
+      <button type="reset" onClick={props.handleCancel} name="experience">
+        cancel
+      </button>
       <button type="submit">save</button>
     </form>
   );

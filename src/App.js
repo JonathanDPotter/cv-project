@@ -37,6 +37,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.hideUnhide = this.hideUnhide.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   hideUnhide(event) {
@@ -46,7 +47,6 @@ class App extends Component {
       currState.hidden = false;
     }
     this.setState({[name]: currState})
-    console.log(this.state[name]);
   }
 
   handleSubmit(event) {
@@ -55,10 +55,10 @@ class App extends Component {
     const currState = this.state[name];
     let newListItem = {};
     let newList = [];
-    [...event.target.elements].forEach((a) => {
-      let itemName = a.name.split(" ")[1];
-      newListItem[itemName] = a.value;
-    });
+    for (const [key, value] of Object.entries(currState)) {
+      newListItem[key] = value;
+    }
+    delete newListItem.list;
     if (name === "general") {
       newList = newListItem;
     } else {
@@ -68,6 +68,7 @@ class App extends Component {
     currState.hidden = true;
     currState.list = newList;
     this.setState({ [name]: currState });
+    event.target.reset();
   }
 
   handleChange(event) {
@@ -76,6 +77,15 @@ class App extends Component {
     const currState = this.state[name1];
     currState[name2] = value;
     this.setState({ [name1]: currState });
+  }
+
+  handleCancel(event) {
+    const { name } = event.target;
+    const currState = this.state[name];
+    currState.hidden = true;
+    this.setState({name: currState});
+    event.target.parentElement.reset();
+
   }
 
   render() {
@@ -97,6 +107,7 @@ class App extends Component {
         <Experience
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
+          handleCancel={this.handleCancel}
           hidden={this.state.experience.hidden}
         />
         <CeeVee
