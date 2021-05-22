@@ -1,8 +1,6 @@
-$background: rgba(159, 170, 223, 0.5);
 $darkblue: rgb(66, 66, 119);
-$yellow: rgba(241, 215, 98, 0.7);
 $red: rgba(247, 11, 11, 0.7);
-$white: rgb(233, 231, 231);
+$white: rgb(247, 247, 247);
 
 * {
   margin: 0;
@@ -14,7 +12,7 @@ $white: rgb(233, 231, 231);
 #root {
   height: 100vh;
   width: 100vw;
-  background-color: $background;
+  background-color: $white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +21,8 @@ $white: rgb(233, 231, 231);
 header {
   height: 10vh;
   width: 100vw;
-  background-color: $yellow;
+  background-color: $darkblue;
+  color: $white;
   line-height: 10vh;
   border-radius: 5px;
   display: flex;
@@ -54,6 +53,7 @@ form {
   border: 8px solid $darkblue;
   border-radius: 5px;
   background-color: $white;
+  color: $darkblue;
 
   div {
     width: 100%;
@@ -61,7 +61,7 @@ form {
   }
 
   input,
-  select,
+  textarea,
   button {
     height: 1.5rem;
     width: 100%;
@@ -72,6 +72,10 @@ form {
     margin: 0.5rem;
   }
 
+  #bio-input {
+      height: 6rem;
+    }
+
   label {
     margin: 0.5rem;
     width: 10rem;
@@ -79,7 +83,8 @@ form {
   button {
     width: 9.5rem;
     font-size: 1rem;
-    background-color: $yellow;
+    background-color: $darkblue;
+    color: $white;
     float: right;
   }
 }
@@ -90,4 +95,9 @@ form {
 
 .show {
   display: block;
+}
+
+#ceevee {
+  background-color: $white;
+  color: $darkblue;
 }

@@ -12,10 +12,10 @@ class App extends Component {
     this.state = {
       general: {
         list: {},
-        hidden: true,
+        hidden: false,
         first: "",
         last: "",
-        age: "",
+        bio: "",
       },
       education: {
         list: [],

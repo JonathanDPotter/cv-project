@@ -1,15 +1,7 @@
 function CeeVee(props) {
-  const { name, description, education, general, experience } = props;
-
-  const displayGen = function (obj, i) {
-    return (
-      <div className="general" key={i}>
-        <h3 className="firstName">{obj.first}</h3>
-        <h4 className="lastName">{obj.last}</h4>
-        <h4 className="age">{obj.age}</h4>
-      </div>
-    );
-  };
+  const { education, general, experience } = props;
+  const name = `${general.first} ${general.last}`;
+  const {bio} = general
 
   const displayEd = function (obj, i) {
     return (
@@ -39,13 +31,7 @@ function CeeVee(props) {
     <div id="cee-vee">
       <div id="name">
         <h1>{name}</h1>
-        <p>{description}</p>
-      </div>
-      <div id="general">
-        <h2>General</h2>
-        <div className="list-item">
-          {displayGen(general)}
-        </div>
+        <p>{bio}</p>
       </div>
       <div id="education">
         <h2>Educatation</h2>

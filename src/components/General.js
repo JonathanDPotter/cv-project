@@ -27,13 +27,12 @@ const General = function (props) {
         />
       </div>
       <div>
-        <label htmlFor="age">Age: </label>
-        <input
-          type="text"
-          name="general age"
-          id="age-input"
+        <label htmlFor="general bio">bio: </label>
+        <textarea
+          name="general bio"
+          id="bio-input"
           onChange={props.handleChange}
-          value={props.genState.age}
+          value={props.genState.bio}
         />
       </div>
       <button type="reset" onClick={props.handleCancel} name="general">

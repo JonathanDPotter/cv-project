@@ -9,7 +9,7 @@ function Header(props) {
           className="head-btn"
           onClick={props.hideUnhide}
         >
-         General
+          General
         </button>
         <button
           id="add-education"
