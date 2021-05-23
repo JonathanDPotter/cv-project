@@ -14,6 +14,7 @@ function Experience(props) {
           id="company-input"
           onChange={props.handleChange}
           value={props.expState.company}
+          required
         />
       </div>
       <div>
@@ -24,6 +25,7 @@ function Experience(props) {
           id="from-input"
           onChange={props.handleChange}
           value={props.expState.from}
+          required
         />
       </div>
       <div>
@@ -34,6 +36,7 @@ function Experience(props) {
           id="to-input"
           onChange={props.handleChange}
           value={props.expState.to}
+          required
         />
       </div>
       <div>
@@ -44,6 +47,7 @@ function Experience(props) {
           id="postition-input"
           onChange={props.handleChange}
           value={props.expState.position}
+          required
         />
       </div>
       <button type="reset" onClick={props.handleCancel} name="experience">

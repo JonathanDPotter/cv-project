@@ -1,7 +1,7 @@
 function CeeVee(props) {
   const { education, general, experience } = props;
   const name = `${general.first} ${general.last}`;
-  const {bio} = general
+  const { bio } = general;
 
   const displayEd = function (obj, i) {
     return (
@@ -11,6 +11,7 @@ function CeeVee(props) {
           From: {obj.from} To: {obj.to}
         </h4>
         <h4 className="degree">{obj.degree}</h4>
+        <br />
       </div>
     );
   };
@@ -23,6 +24,7 @@ function CeeVee(props) {
           From: {obj.from} To: {obj.to}
         </h4>
         <h4 className="position">{obj.position}</h4>
+        <br />
       </div>
     );
   };
@@ -30,17 +32,22 @@ function CeeVee(props) {
   return (
     <div id="cee-vee">
       <div id="name">
-        <h1>{name}</h1>
+        <h1>{general.first === undefined ? "name" : name}</h1>
         <p>{bio}</p>
+        <br />
       </div>
       <div id="education">
         <h2>Educatation</h2>
+        <hr />
+        <br />
         <div className="list-item">
           {education.map((a, i) => displayEd(a, i))}
         </div>
       </div>
       <div id="expierience">
         <h2>Experience</h2>
+        <hr />
+        <br />
         <div className="list-item">
           {experience.map((a, i) => displayExp(a, i))}
         </div>

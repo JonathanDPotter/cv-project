@@ -5,6 +5,7 @@ function Education(props) {
       className={props.edState.hidden === true ? "hidden" : "form"}
       onSubmit={props.handleSubmit}
       name="education"
+      required
     >
       <div>
         <label htmlFor="education school">School: </label>
@@ -14,6 +15,7 @@ function Education(props) {
           id="school-input"
           onChange={props.handleChange}
           value={props.edState.school}
+          required
         />
       </div>
       <div>
@@ -24,6 +26,7 @@ function Education(props) {
           id="from-input"
           onChange={props.handleChange}
           value={props.edState.from}
+          required
         />
       </div>
       <div>
@@ -34,6 +37,7 @@ function Education(props) {
           id="to-input"
           onChange={props.handleChange}
           value={props.edState.to}
+          required
         />
       </div>
       <div>
@@ -44,6 +48,7 @@ function Education(props) {
           id="degree-input"
           onChange={props.handleChange}
           value={props.edState.degree}
+          required
         />
       </div>
       <button type="reset" onClick={props.handleCancel} name="education">
