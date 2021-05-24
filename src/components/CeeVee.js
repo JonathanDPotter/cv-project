@@ -3,9 +3,17 @@ function CeeVee(props) {
   const name = `${general.first} ${general.last}`;
   const { bio } = general;
 
+  const deleteItem = function () {
+    console.log("delete");
+  };
+
   const displayEd = function (obj, i) {
     return (
-      <div className="education" key={i}>
+      <div className="education" key={i} data-key={i}>
+        <div className="cv-btn">
+          <button onClick={props.editEducation}>edit</button>
+          <button onClick={deleteItem}>remove</button>
+        </div>
         <h3 className="school">{obj.school}</h3>
         <h4 className="fromTo">
           From: {obj.from} To: {obj.to}
@@ -18,7 +26,7 @@ function CeeVee(props) {
 
   const displayExp = function (obj, i) {
     return (
-      <div className="experience" key={i}>
+      <div className="experience" key={i} baseobj={obj}>
         <h3 className="company">{obj.company}</h3>
         <h4 className="fromTo">
           From: {obj.from} To: {obj.to}

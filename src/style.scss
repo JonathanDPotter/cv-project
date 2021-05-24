@@ -103,6 +103,7 @@ form {
 
 #cee-vee {
   height: fit-content;
+  max-width: 900px;
   margin: 1rem auto;
   border: 8px solid $darkblue;
   border-radius: 5px;
@@ -120,5 +121,18 @@ form {
     background-color: $darkblue;
     color: $white;
     margin-bottom: 1rem;
+  }
+  button {
+    float: right;
+    height: 1.5rem;
+    background-color: $darkblue;
+    color: $white;
+    width: 4rem;
+    border: 2px solid $darkblue;
+    border-radius: 5px;
+    margin: 0.5rem;
+    &:hover {
+      border-color:$lightblue;
+    }
   }
 }

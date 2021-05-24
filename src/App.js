@@ -38,6 +38,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.hideUnhide = this.hideUnhide.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.editItem = this.editItem.bind(this);
   }
 
   hideUnhide(event) {
@@ -100,6 +101,21 @@ class App extends Component {
     return namedState;
   }
 
+  editItem(event) {
+    const target = event.target.parentNode.parentNode;
+    const { className } = target;
+    const { key } = target.dataset;
+    const currState = { ...this.state[className] };
+    const listItem = currState.list[key];
+    for (const i in listItem) {
+      if (i !== "list" && i !== "hidden") {
+        currState[i] = listItem[i];
+      }
+    }
+    this.setState({ className: currState });
+    this.hideUnhide({ target: {name: className} });
+  }
+
   render() {
     const { general, education, experience } = this.state;
     return (
@@ -127,6 +143,7 @@ class App extends Component {
           education={education.list}
           general={general.list}
           experience={experience.list}
+          editEducation={this.editItem}
         />
       </div>
     );
