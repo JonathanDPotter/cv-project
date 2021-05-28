@@ -3,10 +3,11 @@ function CeeVee(props) {
   const name = `${general.first} ${general.last}`;
   const { bio } = general;
 
+  // just logs the word delete, will add function later
   const deleteItem = function () {
     console.log("delete");
   };
-
+  
   const displayEd = function (obj, i) {
     return (
       <div className="education" key={i} data-key={i}>
@@ -27,6 +28,10 @@ function CeeVee(props) {
   const displayExp = function (obj, i) {
     return (
       <div className="experience" key={i} baseobj={obj}>
+        <div className="cv-btn">
+          <button onClick={props.editItem}>edit</button>
+          <button onClick={deleteItem}>remove</button>
+        </div>
         <h3 className="company">{obj.company}</h3>
         <h4 className="fromTo">
           From: {obj.from} To: {obj.to}

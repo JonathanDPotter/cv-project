@@ -34,6 +34,7 @@ class App extends Component {
         position: "",
       },
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.hideUnhide = this.hideUnhide.bind(this);
@@ -42,6 +43,7 @@ class App extends Component {
     this.log = this.log.bind(this);
   }
 
+  // sets class of the form component to show it or not
   hideUnhide(event) {
     const { name } = event.target;
     const currState = { ...this.state[name] };
@@ -51,6 +53,7 @@ class App extends Component {
     this.setState({ [name]: currState });
   }
 
+  // updates the appropriate list in state
   handleSubmit(event) {
     event.preventDefault();
     const { name } = event.target;
@@ -75,6 +78,7 @@ class App extends Component {
     this.setState({ [name]: currState });
   }
 
+  // gets form input and stores it in the appropriate state, the form then displays what is in state
   handleChange(event) {
     const { name, value } = event.target;
     const [name1, name2] = name.split(" ");
@@ -83,6 +87,7 @@ class App extends Component {
     this.setState({ [name1]: currState });
   }
 
+  // closes form window without saving state
   handleCancel(event) {
     const { name } = event.target;
     let currState = { ...this.state[name] };
@@ -93,6 +98,7 @@ class App extends Component {
     this.setState({ [name]: currState });
   }
 
+  // returns an object with all keys except list and hidden set as empty strings
   clearNamedState(namedState) {
     for (const key in namedState) {
       if (key !== "list" && key !== "hidden") {
@@ -102,6 +108,7 @@ class App extends Component {
     return namedState;
   }
 
+  // opens a form populated with the values stored is state for that display item
   editItem(event) {
     event.preventDefault();
     const target = event.target.parentNode.parentNode;
@@ -118,6 +125,7 @@ class App extends Component {
     this.hideUnhide({target: {name: className}});
   }
 
+  // logs the key education in state to test if editItem is working
   log(event) {
     event.preventDefault();
     console.table(this.state.education);
