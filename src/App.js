@@ -40,7 +40,7 @@ class App extends Component {
     this.hideUnhide = this.hideUnhide.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.editItem = this.editItem.bind(this);
-    this.log = this.log.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
 
   // sets class of the form component to show it or not
@@ -118,17 +118,24 @@ class App extends Component {
     const currItem = currState.list[key];
     for (let i in currItem) {
       if (i !== "list" && i !== "hidden") {
-        currState[i] = currItem[i]
+        currState[i] = currItem[i];
       }
     }
-    this.setState({ [className]: currState });
-    this.hideUnhide({target: {name: className}});
+    currState.list.splice(key, 1);
+    this.setState({ [className]: currState }, () =>
+      this.hideUnhide({ target: { name: className } })
+    );
+    
   }
 
-  // logs the key education in state to test if editItem is working
-  log(event) {
+  removeItem(event) {
     event.preventDefault();
-    console.table(this.state.education);
+    const target = event.target.parentNode.parentNode;
+    const { key } = target.dataset;
+    const { className } = target;
+    const currState = { ...this.state[className] };
+    currState.list.splice(key, 1);
+    this.setState({ [className]: currState });
   }
 
   render() {
@@ -159,8 +166,8 @@ class App extends Component {
           general={general.list}
           experience={experience.list}
           editItem={this.editItem}
+          removeItem={this.removeItem}
         />
-        <button id="test-button" onClick={this.log}>log</button>
       </div>
     );
   }
