@@ -11,7 +11,7 @@ function CeeVee(props) {
     return (
       <div className="education" key={i} data-key={i}>
         <div className="cv-btn">
-          <button onClick={props.editEducation}>edit</button>
+          <button onClick={props.editItem}>edit</button>
           <button onClick={deleteItem}>remove</button>
         </div>
         <h3 className="school">{obj.school}</h3>
